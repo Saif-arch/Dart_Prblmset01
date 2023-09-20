@@ -1,17 +1,14 @@
-import 'dart:io';
+bool isPalindrome(String input) {
+  String cleanedInput = input.replaceAll(' ', '').toLowerCase();
+
+  return cleanedInput == cleanedInput.split('').reversed.join('');
+}
 
 void main() {
-  print('Enter Words or number');
-  // User enter a string or a number
-  String? original = stdin.readLineSync();
+  List<String> inputStrings = ["Madam", "radar", "Civic"];
 
-  // then we will reverse the input
-  String? reverse = original!.split('').reversed.join('');
-
-  // then we will compare
-  if (original == reverse) {
-    print('Its A Palindrome');
-  } else {
-    print('Its A Not Palindrome');
+  for (String input in inputStrings) {
+    bool result = isPalindrome(input);
+    print('Is "$input" a palindrome? $result');
   }
 }
